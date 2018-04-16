@@ -1,0 +1,14 @@
+
+!.mvn/wrapper/maven-wrapper.jar
+
+.idea/
+*.iml
+
+target/
+
+*.log
+*.gz
+
+/src/main/resources/application-development.yaml
+/src/test/resources/application-test.yaml
+
