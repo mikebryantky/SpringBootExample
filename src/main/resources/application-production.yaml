@@ -1,0 +1,30 @@
+
+
+
+
+---
+spring:
+  profiles:  production
+
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:}
+    username: ${DATASOURCE_USERNAME:}
+    password: ${DATASOURCE_PASSWORD:}
+
+    dbcp2:
+      driver-class-name: com.mysql.jdbc.Driver
+      test-on-borrow: true
+      validation-query: SELECT 1
+      max-total: 5
+
+  jpa:
+    properties:
+      show-sql: true
+
+server:
+  port: 443
+  ssl:
+    key-store: ${KEY_STORE:}
+    key-store-password: ${KEY_STORE_PASSWORD:}
+
+

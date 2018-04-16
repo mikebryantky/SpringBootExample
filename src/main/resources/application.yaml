@@ -1,0 +1,35 @@
+
+
+logging:
+  file: poc.log
+  level:
+    ROOT: WARN
+    org.springframework: ERROR
+    com.mikebryant: DEBUG
+
+
+spring.output.ansi.enabled: detect
+
+
+info:
+  app:
+    name: Spring Boot PoC
+    description: Sampple API to show some SpringBoot REST and data access capabilities.
+    version: 0.1
+    tosUrl:
+    license:
+    licenseUrl:
+    contact:
+      name:
+      url:
+      email:
+
+
+management:
+  health:
+    diskspace:
+      enabled: true
+  endpoints:
+    enabled-by-default: true
+
+
