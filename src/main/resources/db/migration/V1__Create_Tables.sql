@@ -1,6 +1,6 @@
 -- MySQL dump 10.16  Distrib 10.1.29-MariaDB, for Win32 (AMD64)
 --
--- Host: 127.0.0.1    Database: purchase_quote_poc
+-- Host: 127.0.0.1   
 -- ------------------------------------------------------
 -- Server version	10.1.29-MariaDB
 
