@@ -1,13 +1,17 @@
 package com.mikebryant.springboot.poc.data.model;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
+@Data
 public class Department {
 
     @Id
@@ -23,42 +27,7 @@ public class Department {
     private String name;
 
 
-    public String getUuid() {
-        return uuid;
-    }
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    private Set<Person> people;
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Department that = (Department) o;
-        return Objects.equals(uuid, that.uuid) &&
-                Objects.equals(name, that.name);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(uuid, name);
-    }
-
-    @Override
-    public String toString() {
-        return "Department{" +
-                "uuid='" + uuid + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

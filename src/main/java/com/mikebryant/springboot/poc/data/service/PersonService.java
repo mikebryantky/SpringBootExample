@@ -2,8 +2,7 @@ package com.mikebryant.springboot.poc.data.service;
 
 import com.mikebryant.springboot.poc.data.model.Person;
 import com.mikebryant.springboot.poc.data.repository.PersonRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class PersonService {
-    private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
-
     @Autowired
     private PersonRepository repository;
 

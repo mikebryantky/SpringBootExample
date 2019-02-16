@@ -13,14 +13,4 @@ public class PocApplication {
 		SpringApplication.run(PocApplication.class, args);
 	}
 
-	@Bean
-	@Profile("test")
-	public FlywayMigrationStrategy cleanMigrateStrategy() {
-		FlywayMigrationStrategy strategy = flyway -> {
-			flyway.clean();
-			flyway.migrate();
-		};
-
-		return strategy;
-	}
 }

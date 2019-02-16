@@ -1,8 +1,7 @@
 package com.mikebryant.springboot.poc.error;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,10 +17,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.persistence.EntityNotFoundException;
 
 @ControllerAdvice
+@Slf4j
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
-    private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
-
-
     public RestResponseEntityExceptionHandler() {
         super();
     }
@@ -31,7 +28,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
                                                                   HttpHeaders headers,
                                                                   HttpStatus status,
                                                                   WebRequest request) {
-        logger.warn("MethodArgumentNotValid: " + e.getMessage(), e);
+        log.warn("MethodArgumentNotValid: " + e.getMessage(), e);
         return handleExceptionInternal(e, message(status, e, e.getBindingResult()), headers, HttpStatus.BAD_REQUEST, request);
     }
 
@@ -40,14 +37,14 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
                                                                   HttpHeaders headers,
                                                                   HttpStatus status,
                                                                   WebRequest request) {
-        logger.warn("HttpMessageNotReadable: " + e.getMessage(), e);
+        log.warn("HttpMessageNotReadable: " + e.getMessage(), e);
         return handleExceptionInternal(e, message(status, e), headers, HttpStatus.BAD_REQUEST, request);
     }
 
     @ExceptionHandler(value = {DataIntegrityViolationException.class})
     public ResponseEntity<Object> handleDataIntegrityViolationException(DataIntegrityViolationException e,
                                                                         WebRequest request) {
-        logger.warn("DataIntegrityViolationException: " + e.getMessage(), e);
+        log.warn("DataIntegrityViolationException: " + e.getMessage(), e);
         return handleExceptionInternal(e, message(HttpStatus.BAD_REQUEST, e), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 
     }
@@ -55,7 +52,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     @ExceptionHandler(value = {EntityNotFoundException.class})
     public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException e,
                                                                 WebRequest request) {
-        logger.warn("EntityNotFoundException: " + e.getMessage(), e);
+        log.warn("EntityNotFoundException: " + e.getMessage(), e);
         return handleExceptionInternal(e, message(HttpStatus.NOT_FOUND, e), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 

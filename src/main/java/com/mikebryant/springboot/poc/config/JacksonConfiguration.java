@@ -20,7 +20,6 @@ public class JacksonConfiguration {
         mapper.registerModule(new Jdk8Module());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         mapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
         return mapper;
     }

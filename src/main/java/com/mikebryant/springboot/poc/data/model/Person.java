@@ -1,6 +1,7 @@
 package com.mikebryant.springboot.poc.data.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
+@Data
 public class Person {
 
     @Id
@@ -50,82 +52,4 @@ public class Person {
     @NotNull(message = "Department is required.")
     private Department department;
 
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department departmentByDepartmentUuid) {
-        this.department = departmentByDepartmentUuid;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(uuid, person.uuid) &&
-                Objects.equals(firstName, person.firstName) &&
-                Objects.equals(lastName, person.lastName) &&
-                Objects.equals(birthDate, person.birthDate) &&
-                Objects.equals(emailAddress, person.emailAddress);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(uuid, firstName, lastName, birthDate, emailAddress);
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "uuid='" + uuid + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthDate=" + birthDate +
-                ", emailAddress='" + emailAddress + '\'' +
-                ", department=" + department +
-                '}';
-    }
 }

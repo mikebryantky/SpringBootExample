@@ -2,6 +2,7 @@ package com.mikebryant.springboot.poc.data.service;
 
 import com.mikebryant.springboot.poc.data.model.Department;
 import com.mikebryant.springboot.poc.data.repository.DepartmentRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class DepartmentService {
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 

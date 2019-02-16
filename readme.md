@@ -58,4 +58,5 @@ sudo java -Dspring.profiles.active=production -jar ./target/poc-0.0.1-SNAPSHOT.j
 * Finish adding better error handling.
 * Update readme to provide better overview of how code works.
 * Add in-line comments to provide clear understanding of functionality.
+* Add ModelMapper DTO (https://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application)
 

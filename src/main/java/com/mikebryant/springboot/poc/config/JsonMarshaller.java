@@ -3,8 +3,7 @@ package com.mikebryant.springboot.poc.config;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Slf4j
 public class JsonMarshaller {
-
-    private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
-
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -27,7 +24,7 @@ public class JsonMarshaller {
         try {
             json = objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
-            logger.warn(e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
 
         return json;
@@ -39,7 +36,7 @@ public class JsonMarshaller {
         try {
             object = objectMapper.readValue(json, clazz);
         } catch (IOException e) {
-            logger.warn(e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
 
         return object;
@@ -52,7 +49,7 @@ public class JsonMarshaller {
         try {
             objects = objectMapper.readValue(json, type);
         } catch (IOException e) {
-            logger.warn(e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
 
         return objects;
