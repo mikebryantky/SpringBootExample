@@ -2,7 +2,6 @@ package com.mikebryant.springboot.poc.data.service;
 
 import com.mikebryant.springboot.poc.data.model.Department;
 import com.mikebryant.springboot.poc.data.repository.DepartmentRepository;
-import org.apache.commons.collections4.IteratorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +17,7 @@ public class DepartmentService {
 
     @Autowired
     private DepartmentRepository repository;
+
 
     public Department save(Department department) {
         Department newDepartment = repository.save(department);
@@ -35,7 +35,7 @@ public class DepartmentService {
     }
 
     public List<Department> getAll() {
-        return IteratorUtils.toList(repository.findAll().iterator());
+        return repository.findAll();
     }
 
 }

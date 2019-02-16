@@ -2,7 +2,6 @@ package com.mikebryant.springboot.poc.data.service;
 
 import com.mikebryant.springboot.poc.data.model.Person;
 import com.mikebryant.springboot.poc.data.repository.PersonRepository;
-import org.apache.commons.collections4.IteratorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ public class PersonService {
     @Autowired
     private PersonRepository repository;
 
+
     public Person save(Person person) {
         return repository.save(person);
     }
@@ -33,11 +33,7 @@ public class PersonService {
     }
 
     public List<Person> getAll() {
-        return IteratorUtils.toList(repository.findAll().iterator());
-
-//        List<Person> people = new ArrayList<>();
-//        repository.findAll().iterator().forEachRemaining(people::add);
-//        return people;
+        return repository.findAll();
     }
 
 
