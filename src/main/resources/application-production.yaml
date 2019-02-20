@@ -4,10 +4,8 @@
 
 ---
 spring:
-  profiles:  production
-
   datasource:
-    url: ${DATASOURCE_URL:jdbc:}
+    url: ${DATASOURCE_URL:}
     username: ${DATASOURCE_USERNAME:}
     password: ${DATASOURCE_PASSWORD:}
 
@@ -21,10 +19,10 @@ spring:
     properties:
       show-sql: true
 
-server:
-  port: 443
-  ssl:
-    key-store: ${KEY_STORE:}
-    key-store-password: ${KEY_STORE_PASSWORD:}
+#server:
+#  port: 443
+#  ssl:
+#    key-store: ${KEY_STORE:}
+#    key-store-password: ${KEY_STORE_PASSWORD:}
 
 
