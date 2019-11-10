@@ -28,7 +28,7 @@ CREATE TABLE `department` (
   PRIMARY KEY (`uuid`),
   UNIQUE KEY `department_uuid_uindex` (`uuid`),
   UNIQUE KEY `department_name_uindex` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `person` (
   KEY `person_last_name_index` (`last_name`),
   KEY `person_department_uuid_fk` (`department_uuid`),
   CONSTRAINT `person_department_uuid_fk` FOREIGN KEY (`department_uuid`) REFERENCES `department` (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
 
 
 /*!40101 SET character_set_client = @saved_cs_client */;
