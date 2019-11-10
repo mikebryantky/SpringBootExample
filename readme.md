@@ -1,5 +1,6 @@
 # SpringBoot Proof of Concept
 
+[![Codeship Status for mikebryantky/SpringBootExample](https://app.codeship.com/projects/b80a9370-e633-0137-8614-7a7783fef01d/status?branch=master)](https://app.codeship.com/projects/373567)
 
 ## SpringBoot
  * Make a copy of the __application-development-sample.yaml__ named __application-development.yaml__
